@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base Colors (RGB Format for Opacity Support) */
+  --color-white: 255 255 255; /* #ffffff */
+  --color-black: 0 0 0; /* #000000 */
+  --color-primary-light: 219 191 120; /* blue-600 #2563eb */
+  --color-primary: 175 151 92; /* blue-600 #2563eb */
+  /* --color-primary-dark: 175 151 92;  blue-700 #1e40af */
+  --color-secondary: 17 17 17; /* gray-600 #4b5563 */
+  --color-secondary-100: 243 244 246; /* gray-100 #f3f4f6 */
+  --color-secondary-200: 229 231 235; /* gray-200 #e5e7eb */
+  --color-secondary-600: 75 85 99; /* gray-600 #4b5563 */
+  --color-secondary-800: 30 41 57; /* gray-800 #1e2939 */
+  --color-destructive: 220 38 38; /* red-600 #dc2626 */
+  --color-success: 22 163 74; /* green-600 #16a34a */
+  --color-warning: 249 115 22; /* orange-500 #f97316 */
+
+  /* Functional Layout Variables */
+  --background: var(--color-white);
+  --foreground: var(--color-black);
+
+  --card: var(--color-white);
+  --card-foreground: var(--color-black);
+
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-black);
+
+  --primary: var(--color-primary);
+  --primary-light: var(--color-primary-light);
+  --primary-dark: var(--color-primary-dark);
+  --primary-foreground: var(--color-white);
+
+  --secondary: var(--color-secondary);
+  --secondary-foreground: var(--color-secondary-600);
+  --secondary-background: var(--color-secondary-100);
+
+  --muted: var(--color-secondary-100);
+  --muted-foreground: var(--color-secondary-600);
+
+  --accent: var(--color-secondary-100);
+  --accent-foreground: var(--color-primary);
+
+  --destructive: var(--color-destructive);
+  --destructive-foreground: var(--color-white);
+
+  --success: var(--color-success);
+  --success-foreground: var(--color-white);
+
+  --warning: var(--color-warning);
+  --warning-foreground: var(--color-white);
+
+  --border: var(--color-secondary-100);
+  --input: var(--color-secondary-100);
+  --ring: var(--color-secondary);
+
+  --radius: 0.5rem;
+
+  color-scheme: light;
+}
+
+.dark {
+  --background: var(--color-black);
+  --foreground: var(--color-white);
+
+  --card: var(--color-black);
+  --card-foreground: var(--color-white);
+
+  --popover: var(--color-black);
+  --popover-foreground: var(--color-white);
+
+  --primary: var(--color-primary);
+  --primary-light: var(--color-primary-light);
+  --primary-dark: var(--color-primary-dark);
+  --primary-foreground: var(--color-white);
+
+  --secondary: var(--color-secondary-600);
+  --secondary-foreground: var(--color-secondary);
+  --secondary-background: var(--color-secondary-800);
+
+  --muted: var(--color-secondary);
+  --muted-foreground: var(--color-white);
+
+  --accent: var(--color-secondary-600);
+  --accent-foreground: var(--color-white);
+
+  --destructive: var(--color-destructive);
+  --destructive-foreground: var(--color-white);
+
+  --success: var(--color-success);
+  --success-foreground: var(--color-white);
+
+  --warning: var(--color-warning);
+  --warning-foreground: var(--color-white);
+
+  --border: var(--color-secondary-600);
+  --input: var(--color-secondary-600);
+  --ring: var(--color-secondary);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, rgb(var(--primary)), rgb(var(--primary-light)));
+    /* background: linear-gradient(135deg, rgb(var(--primary)), rgb(var(--primary-dark))); */
+  }
+  
+  .animate-in {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .fade-in-0 {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .slide-in-from-bottom-4 {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
