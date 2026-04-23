@@ -40,18 +40,16 @@ export default function LoginScreen({
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-      <Card className="w-full max-w-md shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
+    <div className="min-h-screen bg-background bg-grid-pattern bg-mesh flex items-center justify-center p-4 transition-colors duration-500">
+      <Card className="w-full max-w-md shadow-2xl border-0 glass animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
         <CardHeader className="text-center pb-8">
           <div className="mx-auto mb-4 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
             <Shield className="w-8 h-8 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Admin Portal
           </CardTitle>
-          <CardDescription className="text-gray-600 mt-2">
+          <CardDescription className="text-muted-foreground mt-2">
             Sign in to access your dashboard
           </CardDescription>
         </CardHeader>
@@ -61,7 +59,7 @@ export default function LoginScreen({
             <div className="space-y-2">
               <Label
                 htmlFor="email"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-foreground/80"
               >
                 Email Address
               </Label>
@@ -70,7 +68,9 @@ export default function LoginScreen({
                 type="email"
                 placeholder="admin@company.com"
                 value={email}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.target.value)
+                }
                 className="h-11 transition-all duration-200 focus:ring-2 focus:ring-primary focus:border-transparent"
                 required
               />
@@ -79,7 +79,7 @@ export default function LoginScreen({
             <div className="space-y-2">
               <Label
                 htmlFor="password"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-foreground/80"
               >
                 Password
               </Label>
@@ -89,14 +89,16 @@ export default function LoginScreen({
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   value={password}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
                   className="h-11 pr-10 transition-all duration-200 focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="w-4 h-4" />
@@ -135,7 +137,7 @@ export default function LoginScreen({
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground/60">
               Demo credentials: any email & password
             </p>
           </div>

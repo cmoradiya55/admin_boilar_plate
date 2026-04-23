@@ -49,10 +49,12 @@ export default function Home() {
   // Show loading spinner while checking auth
   if (authState.isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-background bg-grid-pattern bg-mesh flex items-center justify-center transition-colors duration-500">
         <div className="text-center">
           <LoadingSpinner size="lg" className="mx-auto mb-4" />
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-muted-foreground animate-pulse font-medium">
+            Loading...
+          </p>
         </div>
       </div>
     );

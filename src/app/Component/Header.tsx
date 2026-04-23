@@ -24,12 +24,14 @@ import {
   User,
   LogOut,
   Sun,
+  Moon,
   ArrowLeft,
   X,
   PanelLeft,
   PanelLeftClose,
 } from "lucide-react";
 import { useToast } from "@/src/hooks/use-toast";
+import { useTheme } from "next-themes";
 
 interface HeaderProps {
   sidebarCollapsed: boolean;
@@ -67,15 +69,18 @@ export default function Header({
 
   const { toast } = useToast();
 
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   const handleThemeClick = () => {
-    toast({
-      title: "Theme Settings",
-      description: "Dark mode and theme customization coming soon!",
-    });
+    toggleTheme();
   };
 
   return (
-    <header className="bg-background border-b border-border px-4 py-3 shadow-sm">
+    <header className="bg-background/80 glass border-b border-border px-4 py-3 shadow-sm sticky top-0 z-[45] transition-colors duration-500">
       <div className="flex items-center justify-between">
         {/* Left Section */}
         <div className="flex items-center space-x-4">
@@ -153,6 +158,19 @@ export default function Header({
             )}
           </Button>
 
+          {/* Theme Toggle */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleTheme}
+            className="p-2 hover:bg-secondary transition-colors"
+            title="Toggle theme"
+          >
+            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+
           {/* Profile Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -211,8 +229,9 @@ export default function Header({
                 className="cursor-pointer hover:bg-gray-50 transition-colors"
                 onClick={handleThemeClick}
               >
-                <Sun className="mr-2 h-4 w-4" />
-                <span>Theme</span>
+                <Sun className="mr-2 h-4 w-4 dark:hidden" />
+                <Moon className="mr-2 h-4 w-4 hidden dark:block" />
+                <span>Theme ({theme === "dark" ? "Dark" : "Light"})</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem

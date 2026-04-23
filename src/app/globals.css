@@ -4,36 +4,35 @@
 
 :root {
   /* Base Colors (RGB Format for Opacity Support) */
-  --color-white: 255 255 255; /* #ffffff */
-  --color-black: 0 0 0; /* #000000 */
-  --color-primary-light: 219 191 120; /* blue-600 #2563eb */
-  --color-primary: 175 151 92; /* blue-600 #2563eb */
-  /* --color-primary-dark: 175 151 92;  blue-700 #1e40af */
-  --color-secondary: 17 17 17; /* gray-600 #4b5563 */
-  --color-secondary-100: 243 244 246; /* gray-100 #f3f4f6 */
-  --color-secondary-200: 229 231 235; /* gray-200 #e5e7eb */
-  --color-secondary-600: 75 85 99; /* gray-600 #4b5563 */
-  --color-secondary-800: 30 41 57; /* gray-800 #1e2939 */
-  --color-destructive: 220 38 38; /* red-600 #dc2626 */
-  --color-success: 22 163 74; /* green-600 #16a34a */
-  --color-warning: 249 115 22; /* orange-500 #f97316 */
+  --color-white: 255 255 255;
+  --color-black: 15 23 42; /* Slate-900 #0f172a */
+  --color-primary-light: 59 131 246;
+  --color-primary: 37 99 235;
+  --color-secondary: 71 85 105; /* Slate-600 */
+  --color-secondary-100: 241 245 249; /* Slate-100 */
+  --color-secondary-200: 226 232 240; /* Slate-200 */
+  --color-secondary-600: 71 85 105; /* Slate-600 */
+  --color-secondary-800: 30 41 59; /* Slate-800 */
+  --color-destructive: 220 38 38;
+  --color-success: 22 163 74;
+  --color-warning: 249 115 22;
 
   /* Functional Layout Variables */
-  --background: var(--color-white);
-  --foreground: var(--color-black);
+  --background: 248 250 252; /* Slate-50 #f8fafc */
+  --foreground: 15 23 42; /* Slate-900 */
 
-  --card: var(--color-white);
-  --card-foreground: var(--color-black);
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
 
-  --popover: var(--color-white);
-  --popover-foreground: var(--color-black);
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
 
   --primary: var(--color-primary);
   --primary-light: var(--color-primary-light);
   --primary-dark: var(--color-primary-dark);
   --primary-foreground: var(--color-white);
 
-  --secondary: var(--color-secondary);
+  --secondary: var(--color-secondary-100);
   --secondary-foreground: var(--color-secondary-600);
   --secondary-background: var(--color-secondary-100);
 
@@ -52,38 +51,43 @@
   --warning: var(--color-warning);
   --warning-foreground: var(--color-white);
 
-  --border: var(--color-secondary-100);
-  --input: var(--color-secondary-100);
-  --ring: var(--color-secondary);
+  --border: var(--color-secondary-200);
+  --input: var(--color-secondary-200);
+  --ring: var(--color-primary);
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;
+
+  --grid-color: rgba(15, 23, 42, 0.05); /* Slate-900 at 5% */
+  --mesh-opacity: 0.03;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.05);
 
   color-scheme: light;
 }
 
 .dark {
-  --background: var(--color-black);
-  --foreground: var(--color-white);
+  --background: 15 23 42; /* Slate-900 #0f172a */
+  --foreground: 248 250 252; /* Slate-50 */
 
-  --card: var(--color-black);
-  --card-foreground: var(--color-white);
+  --card: 30 41 59; /* Slate-800 #1e293b */
+  --card-foreground: 248 250 252;
 
-  --popover: var(--color-black);
-  --popover-foreground: var(--color-white);
+  --popover: 30 41 59;
+  --popover-foreground: 248 250 252;
 
   --primary: var(--color-primary);
   --primary-light: var(--color-primary-light);
   --primary-dark: var(--color-primary-dark);
   --primary-foreground: var(--color-white);
 
-  --secondary: var(--color-secondary-600);
-  --secondary-foreground: var(--color-secondary);
-  --secondary-background: var(--color-secondary-800);
+  --secondary: 51 65 85; /* Slate-700 */
+  --secondary-foreground: 241 245 249;
+  --secondary-background: 24 33 50;
 
-  --muted: var(--color-secondary);
-  --muted-foreground: var(--color-white);
+  --muted: 51 65 85;
+  --muted-foreground: 203 213 225; /* Slate-300 */
 
-  --accent: var(--color-secondary-600);
+  --accent: 51 65 85;
   --accent-foreground: var(--color-white);
 
   --destructive: var(--color-destructive);
@@ -95,9 +99,14 @@
   --warning: var(--color-warning);
   --warning-foreground: var(--color-white);
 
-  --border: var(--color-secondary-600);
-  --input: var(--color-secondary-600);
-  --ring: var(--color-secondary);
+  --border: 51 65 85;
+  --input: 51 65 85;
+  --ring: var(--color-primary);
+
+  --grid-color: rgba(248, 250, 252, 0.05); /* Slate-50 at 5% */
+  --mesh-opacity: 0.15;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(248, 250, 252, 0.1);
 
   color-scheme: dark;
 }
@@ -114,9 +123,16 @@
 @layer utilities {
   .bg-grid-pattern {
     background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-mesh {
+    background-image: radial-gradient(at 0% 0%, rgba(var(--color-primary), var(--mesh-opacity)) 0, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(var(--color-primary-light), var(--mesh-opacity)) 0, transparent 50%),
+                      radial-gradient(at 100% 100%, rgba(var(--color-primary), var(--mesh-opacity)) 0, transparent 50%),
+                      radial-gradient(at 0% 100%, rgba(var(--color-primary-light), var(--mesh-opacity)) 0, transparent 50%);
   }
 
   .bg-primary-gradient {
@@ -165,5 +181,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .glass {
+    @apply bg-clip-padding backdrop-blur-md;
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
   }
 }

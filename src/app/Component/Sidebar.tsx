@@ -150,7 +150,7 @@ export default function Sidebar({
 
       <aside
         className={cn(
-          "flex flex-col bg-background border-r border-border h-full select-none z-50",
+          "flex flex-col bg-background/80 glass border-r border-border h-full select-none z-50",
           "transition-all duration-300 ease-in-out",
           collapsed ? "w-[72px]" : "w-[260px]",
           "max-md:fixed max-md:inset-y-0 max-md:left-0 max-md:z-50 max-md:w-[260px] max-md:shadow-2xl",
@@ -341,7 +341,7 @@ export default function Sidebar({
         </nav>
 
         {/* ── Footer / Logout ─────────────────────────── */}
-        <div className="shrink-0 p-3 border-t border-border w-full flex justify-center">
+        <div className="shrink-0 p-3 border-t border-border w-full flex justify-center bg-background/80 glass">
           {collapsed ? (
             <SidebarTooltip label="Logout">
               <button

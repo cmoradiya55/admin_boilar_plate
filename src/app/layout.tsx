@@ -57,6 +57,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProvider } from "../Components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: {
@@ -64,13 +66,25 @@ export default function RootLayout({
 }) {
   return (
     // <html lang="en" className={inter.variable}>
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       {" "}
       <body className={`${inter.className} antialiased`}>
-        <FlagsProvider>
-          <div id="root">{children}</div>
-        </FlagsProvider>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <FlagsProvider>
+            <div
+              id="root"
+              className="min-h-screen bg-background bg-grid-pattern bg-mesh transition-colors duration-500"
+            >
+              {children}
+            </div>
+          </FlagsProvider>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

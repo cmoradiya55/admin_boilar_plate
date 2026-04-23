@@ -47,18 +47,16 @@ export default function ForgotPasswordScreen({
 
   if (isEmailSent) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-        <Card className="w-full max-w-md shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
+      <div className="min-h-screen bg-background bg-grid-pattern bg-mesh flex items-center justify-center p-4 transition-colors duration-500">
+        <Card className="w-full max-w-md shadow-2xl border-0 glass animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
           <CardHeader className="text-center pb-8">
             <div className="mx-auto mb-4 w-16 h-16 bg-success rounded-2xl flex items-center justify-center shadow-lg">
               <CheckCircle className="w-8 h-8 text-success-foreground" />
             </div>
-            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               Check Your Email
             </CardTitle>
-            <CardDescription className="text-gray-600 mt-2">
+            <CardDescription className="text-muted-foreground mt-2">
               Password reset instructions have been sent
             </CardDescription>
           </CardHeader>
@@ -72,7 +70,7 @@ export default function ForgotPasswordScreen({
                 </p>
               </div>
 
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 Didn't receive the email? Check your spam folder or try again.
               </p>
 
@@ -110,18 +108,16 @@ export default function ForgotPasswordScreen({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-      <Card className="w-full max-w-md shadow-2xl border-0 bg-white/80 backdrop-blur-sm animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
+    <div className="min-h-screen bg-background bg-grid-pattern bg-mesh flex items-center justify-center p-4 transition-colors duration-500">
+      <Card className="w-full max-w-md shadow-2xl border-0 glass animate-in fade-in-0 slide-in-from-bottom-4 duration-1000">
         <CardHeader className="text-center pb-8">
           <div className="mx-auto mb-4 w-16 h-16 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
             <Shield className="w-8 h-8 text-primary-foreground" />
           </div>
-          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+          <CardTitle className="text-2xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
             Reset Password
           </CardTitle>
-          <CardDescription className="text-gray-600 mt-2">
+          <CardDescription className="text-muted-foreground mt-2">
             Enter your email to receive reset instructions
           </CardDescription>
         </CardHeader>
@@ -131,7 +127,7 @@ export default function ForgotPasswordScreen({
             <div className="space-y-2">
               <Label
                 htmlFor="email"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-foreground/80"
               >
                 Email Address
               </Label>
@@ -165,7 +161,7 @@ export default function ForgotPasswordScreen({
             </Button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-gray-200">
+          <div className="mt-6 pt-6 border-t border-border">
             <Button
               onClick={onBackToLogin}
               variant="ghost"
@@ -177,11 +173,11 @@ export default function ForgotPasswordScreen({
           </div>
 
           <div className="mt-4 text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               Remember your password?
               <button
                 onClick={onBackToLogin}
-                className="text-primary hover:text-primary/90 ml-1 font-medium"
+                className="text-primary hover:text-primary/90 ml-1 font-medium transition-colors"
               >
                 Sign in instead
               </button>
